@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Slideshow and Digital Clock</title>
+
+
+	<style>
+		.slideshow {
+			display: block;
+			margin: 0 auto;
+			width: 500px;
+			height: 300px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.slideshow img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0;
+			transition: opacity 1s ease-in-out;
+		}
+
+		.slideshow img.active {
+			opacity: 1;
+		}
+
+		.clock {
+			display: block;
+			margin: 50px auto;
+			font-size: 36px;
+			text-align: center;
+			font-family: Arial, sans-serif;
+			color: #333;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="slideshow">
+		<img src="image1.jpg" class="active">
+		<img src="image2.jpg">
+		<img src="image3.jpg">
+	</div>
+
+
+	<div class="clock" id="clock"></div>
+
+	
+	<script>
+		var slideIndex = 0;
+		showSlides();
+
+		function showSlides() {
+			var i;
+			var slides = document.getElementsByClassName("slideshow")[0].getElementsByTagName("img");
+			for (i = 0; i < slides.length; i++) {
+				slides[i].classList.remove("active");
+			}
+			slideIndex++;
+			if (slideIndex > slides.length) {slideIndex = 1}
+			slides[slideIndex-1].classList.add("active");
+			setTimeout(showSlides, 3000);
+		}
+
+		function displayTime() {
+			var date = new Date();
+			var hours = date.getHours();
+			var minutes = date.getMinutes();
+			var seconds = date.getSeconds();
+			hours = (hours < 10 ? "0" : "") + hours;
+			minutes = (minutes < 10 ? "0" : "") + minutes;
+			seconds = (seconds < 10 ? "0" : "") + seconds;
+			var time = hours + ":" + minutes + ":" + seconds;
+			document.getElementById("clock").innerHTML = time;
+			setTimeout(displayTime, 1000);
+		}
+
+		displayTime();
+	</script>
+
+</body>
+</html>

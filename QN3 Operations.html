@@ -1,0 +1,86 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+  <style>
+  fieldset{
+    background-color: purple;
+    padding:100px;
+    padding-left: 100px;
+    padding-right: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+input{
+  margin: 50px;
+}
+
+
+
+  </style>
+</head>
+<body>
+  <center>
+
+	
+  <fieldset>
+	<label for="input1">Enter First Number: </label>
+	<input type="text" id="input1"><br>
+	<label for="input2">Enter Second Number: </label>
+	<input type="text" id="input2"><br>
+
+	
+	<button onclick="add()">+</button>
+	<button onclick="subtract()">-</button>
+	<button onclick="multiply()">*</button>
+	<button onclick="divide()">/</button>
+	<button onclick="modulo()">%</button>
+
+	
+	<label for="result">Result: </label>
+	<input type="text" id="result" readonly>
+</fieldset>
+	<script>
+		
+		function add() {
+			var num1 = parseFloat(document.getElementById("input1").value);
+			var num2 = parseFloat(document.getElementById("input2").value);
+			var result = num1 + num2;
+			document.getElementById("result").value = result;
+		}
+
+		
+		function subtract() {
+			var num1 = parseFloat(document.getElementById("input1").value);
+			var num2 = parseFloat(document.getElementById("input2").value);
+			var result = num1 - num2;
+			document.getElementById("result").value = result;
+		}
+
+	
+		function multiply() {
+			var num1 = parseFloat(document.getElementById("input1").value);
+			var num2 = parseFloat(document.getElementById("input2").value);
+			var result = num1 * num2;
+			document.getElementById("result").value = result;
+		}
+
+		
+		function divide() {
+			var num1 = parseFloat(document.getElementById("input1").value);
+			var num2 = parseFloat(document.getElementById("input2").value);
+			var result = num1 / num2;
+			document.getElementById("result").value = result;
+		}
+
+	
+		function modulo() {
+			var num1 = parseFloat(document.getElementById("input1").value);
+			var num2 = parseFloat(document.getElementById("input2").value);
+			var result = num1 % num2;
+			document.getElementById("result").value = result;
+		}
+	</script>
+
+</body>
+</html>

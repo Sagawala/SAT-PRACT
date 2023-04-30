@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Online Quiz System</title>
+	<style>
+		
+		.quiz-container {
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+
+		.question-container {
+			margin-bottom: 20px;
+		}
+
+		
+		.question {
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+
+		
+		.answer-option {
+			display: block;
+			margin-bottom: 10px;
+			cursor: pointer;
+		}
+
+	
+		.submit-button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+
+	
+	<div class="quiz-container">
+
+		
+		<div class="question-container">
+			<div class="question">Who is your lecturer?</div>
+			<label><input type="radio" name="q1" value="a">a) khamis</label>
+			<label><input type="radio" name="q1" value="b">b) mr.masoud</label>
+			<label><input type="radio" name="q1" value="c">c) Lauro</label>
+		</div>
+
+	
+		<div class="question-container">
+			<div class="question">What is your course?</div>
+			<label><input type="radio" name="q2" value="a">a) bitam</label>
+			<label><input type="radio" name="q2" value="b">b) bages</label>
+			<label><input type="radio" name="q2" value="c">c) inclusive</label>
+		</div>
+
+		
+		<button class="submit-button" onclick="submitQuiz()">Submit</button>
+
+	</div>
+
+	<script>
+	
+	
+		function submitQuiz() {
+			var q1 = document.querySelector('input[name="q1"]:checked');
+			var q2 = document.querySelector('input[name="q2"]:checked');
+
+			if (q1 === null || q2 === null) {
+				alert("Please answer all questions");
+			} else {
+				var score = 0;
+				if (q1.value === "b") { score++; }
+				if (q2.value === "a") { score++; }
+
+				alert("You scored " + score + " out of 2");
+			}
+		}
+	</script>
+
+</body>
+</html>

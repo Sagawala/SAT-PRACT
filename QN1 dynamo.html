@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>changing page</title>
+	<style>
+		/* Style for sliding menu */
+		#menu {
+			position: fixed;
+			top: 0;
+			left: -250px;
+			width: 250px;
+			height: 100vh;
+			background-color: #333;
+			transition: left 0.3s ease-in-out;
+			padding: 20px;
+		}
+		#menu a {
+			display: block;
+			color: #fff;
+			text-decoration: none;
+			margin-bottom: 10px;
+		}
+		#menu a:hover {
+			color: #ffc107;
+		}
+
+		/* Style for image */
+		#image-container {
+			position: relative;
+			width: 400px;
+			height: 300px;
+			margin: 50px auto;
+		}
+		#image {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			transition: transform 0.5s ease-in-out;
+		}
+		#image:hover {
+			transform: scale(1.1);
+		}
+	</style>
+</head>
+<body>
+	<center>
+
+	<!-- Sliding menu -->
+	<div id="menu">
+		<a href="#">students issues</a>
+		<a href="#">tutorials</a>
+		<a href="#">results</a>
+	</div>
+
+	<!-- Button to slide menu -->
+	<button onclick="toggleMenu()">slide menu</button>
+
+	<!-- Changing text -->
+	<h1 id="change-text">SUZA students platform</h1>
+
+	<!-- Image and button to move it -->
+	<div id="image-container">
+		<img id="image" src="image3.jpg" alt="Image">
+	</div>
+	<button onclick="moveImage()">Move Image</button>
+
+	<script>
+		// Changing text after a time interval
+		setInterval(function() {
+			var text = document.getElementById("change-text");
+			if (text.innerHTML === "WELCOME SUZA") {
+				text.innerHTML = "Explore Student life and challenges";
+			} else {
+				text.innerHTML = "WELCOME SUZA";
+			}
+		}, 3000);
+
+		// Sliding menu
+		function toggleMenu() {
+			var menu = document.getElementById("menu");
+			if (menu.style.left === "-250px") {
+				menu.style.left = "0";
+			} else {
+				menu.style.left = "-250px";
+			}
+		}
+
+		// Moving image
+		function moveImage() {
+			var image = document.getElementById("image");
+			
+			if (image.style.left === '0px') {
+        image.style.left = '200px';
+      } else {
+        image.style.left = '0px';
+      }
+		}
+	</script>
+
+</body>
+</html>
